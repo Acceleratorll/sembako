@@ -9,4 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Owner extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

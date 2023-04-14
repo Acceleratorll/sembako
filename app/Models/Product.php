@@ -11,12 +11,27 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'category_id',
         'store_id',
+        'category_id',
         'name',
         'qty',
         'price',
         'discount',
         'desc',
     ];
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function order_product()
+    {
+        return $this->belongsTo(OrderProduct::class);
+    }
 }

@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class OrderReturn extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function order_detail()
+    {
+        return $this->hasOne(OrderDetail::class);
+    }
 }
