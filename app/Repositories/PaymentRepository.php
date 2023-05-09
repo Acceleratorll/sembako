@@ -26,13 +26,19 @@ class PaymentRepository
 
     public function create($data)
     {
-        return $this->model->create($data);
+        return $this->model->create([
+            'method' => $data['method'],
+            'amount' => $data['amount'],
+        ]);
     }
 
     public function update($id, $data)
     {
         $payment = $this->model->find($id);
-        $payment->update($data);
+        $payment->update([
+            'method' => $data['method'],
+            'amount' => $data['amount'],
+        ]);
         return $payment;
     }
 

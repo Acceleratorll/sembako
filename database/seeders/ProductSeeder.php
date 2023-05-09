@@ -14,8 +14,13 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('products')->insert([
-        //     'name' => 'employee'
-        // ]);
+        DB::table('products')->insert([
+            'store_id' => 1,
+            'name' => 'Milo',
+            'qty' => 100,
+            'price' => 10000,
+            'desc' => 'Minuman yang menyegarkan dari Nestle',
+            'img' => 'product_img.jpg',
+        ]);
     }
 }

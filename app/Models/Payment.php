@@ -10,8 +10,13 @@ class Payment extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'method',
+        'amount',
+    ];
+
     public function order_detail()
     {
-        return $this->belongsTo(OrderDetail::class);
+        return $this->hasMany(OrderDetail::class);
     }
 }

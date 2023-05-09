@@ -10,9 +10,37 @@ class Store extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'owner_id',
+        'name',
+        'address',
+        'phone',
+        'city',
+        'slogan',
+        'front_img',
+        'banner_img',
+        'wallet',
+        'email',
+    ];
+
     public function product()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function branch()
+    {
+        return $this->hasMany(Branch::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasMany(Employee::class);
     }
 
     public function order_detail()

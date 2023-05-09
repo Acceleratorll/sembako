@@ -20,5 +20,19 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => 'password',
         ]);
+
+        DB::table('users')->insert([
+            'role_id' => 3,
+            'username' => 'owner',
+            'email' => 'owner@gmail.com',
+            'password' => 'password',
+        ]);
+
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'username' => 'customer',
+            'email' => 'customer@gmail.com',
+            'password' => 'password',
+        ]);
     }
 }

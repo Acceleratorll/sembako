@@ -10,8 +10,18 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function product()
+    protected $fillable = [
+        'store_id',
+        'name',
+        'desc',
+    ];
+
+    public function store()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Store::class);
+    }
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
     }
 }

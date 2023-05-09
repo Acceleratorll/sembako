@@ -26,13 +26,21 @@ class CategoryRepository
 
     public function create($data)
     {
-        return $this->model->create($data);
+        return $this->model->create([
+            'store_id' => $data['store_id'],
+            'name' => $data['name'],
+            'desc' => $data['desc'],
+        ]);
     }
 
     public function update($id, $data)
     {
         $category = $this->model->find($id);
-        $category->update($data);
+        $category->update([
+            'store_id' => $data['store_id'],
+            'name' => $data['name'],
+            'desc' => $data['desc'],
+        ]);
         return $category;
     }
 

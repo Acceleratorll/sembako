@@ -12,12 +12,12 @@ class Product extends Model
 
     protected $fillable = [
         'store_id',
-        'category_id',
         'name',
         'qty',
         'price',
         'discount',
         'desc',
+        'img',
     ];
 
     public function store()
@@ -27,11 +27,21 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function order_product()
     {
-        return $this->belongsTo(OrderProduct::class);
+        return $this->hasMany(OrderProduct::class);
+    }
+
+    public function order_return()
+    {
+        return $this->hasMany(OrderReturn::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
     }
 }

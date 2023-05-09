@@ -10,6 +10,16 @@ class OrderDetail extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'store_id',
+        'customer_id',
+        'payment_id',
+        'shipping_id',
+        'ppn',
+        'discount',
+        'total',
+    ];
+
     public function order_product()
     {
         return $this->hasMany(OrderProduct::class);
@@ -17,11 +27,11 @@ class OrderDetail extends Model
 
     public function payment()
     {
-        return $this->hasOne(Payment::class);
+        return $this->belongsTo(Payment::class);
     }
 
     public function order_return()
     {
-        return $this->belongsTo(OrderReturn::class);
+        return $this->hasMany(OrderReturn::class);
     }
 }
