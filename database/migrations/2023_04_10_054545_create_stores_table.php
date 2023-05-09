@@ -20,9 +20,11 @@ class CreateStoresTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('slogan', 100);
-            $table->string('front_img');
-            $table->string('banner_img');
+            $table->string('front_img')->nullable()->default('default_front_banner.jpg');
+            $table->string('banner_img')->nullable()->default('default_banner_banner.jpg');
             $table->float('wallet', 15, 2);
+            $table->string('phone');
+            $table->string('email');
             $table->softDeletes();
             $table->timestamps();
         });

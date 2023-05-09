@@ -15,7 +15,9 @@ class CreateOrderReturnsTable extends Migration
     {
         Schema::create('order_returns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_product_id')->constrained('order_products');
+            $table->foreignId('product_id')->constrained('products');
+            $table->foreignId('order_detail_id')->constrained('order_details');
+            $table->integer('qty');
             $table->boolean('cancelled');
             $table->text('note');
             $table->date('returned_date')->nullable();

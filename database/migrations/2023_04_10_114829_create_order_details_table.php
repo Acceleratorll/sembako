@@ -18,6 +18,7 @@ class CreateOrderDetailsTable extends Migration
             $table->foreignId('store_id')->constrained('stores');
             $table->foreignId('customer_id')->constrained('customers');
             $table->foreignId('payment_id')->constrained('payments');
+            $table->foreignId('shipping_id')->constrained('shippings');
             $table->float('ppn',8,2);
             $table->float('discount',3,2);
             $table->float('total',15,2);
